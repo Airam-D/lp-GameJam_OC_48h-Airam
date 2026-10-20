@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-marca: #06b6d4; /* Azul Ciano Neon (Identidade visual do evento) */
+  --color-destaque: #ff4a26; /* Laranja/Vermelho Vibrante (Papel: Ação / Call to Action) */
+  --color-texto: #ffffff; /* Branco Puro (Papel: Texto principal sobre fundos escuros) */
+  --color-texto-mutado: #94a3b8; /* Cinza Claro (Papel: Texto Secundário / Descrições menos importantes) */
+  --color-fundo-principal: #111827; /* Grafite Charcoal Escuro (Papel: Fundo Principal da página) */
+  --color-fundo-secundario: #1f2937; /* Grafite Médio (Papel: Fundo de Seções alternativas ou Cartões) */
+  --color-sucesso: #22c55e; /* Verde Digital (Para Badges de status ou confirmações) */
+}
