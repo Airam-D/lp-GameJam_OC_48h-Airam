@@ -9,7 +9,7 @@ function Inscricao() {
     const [enviado, setEnviado] = useState(false)
 
     const precoUnitario = ingresso.includes('R$ 40') ? 40 : 0
-    const valorTotal = precoUnitario * quantidade
+    const valorTotal = precoUnitario * Math.max(1, quantidade)
 
     function enviar(e) {
         e.preventDefault()
@@ -26,8 +26,8 @@ function Inscricao() {
     if (enviado) {
         return (
             <section id="inscricao" className="bg-fundo-principal py-16 px-4 text-center text-texto">
-                <div className="max-w-md mx-auto bg-fundo-secundario p-8 rounded-2xl border border-sucesso/30 shadow-lg">
-                    <span className="text-4xl">🚀</span>
+                <div role="status" aria-live="polite" className="max-w-md mx-auto bg-fundo-secundario p-8 rounded-2xl border border-sucesso/30 shadow-lg">
+                    <span className="text-4xl" aria-hidden="true">🚀</span>
                     <h2 className="text-2xl font-black text-sucesso uppercase mt-4 mb-2">Pedido Confirmado!</h2>
                     <p className="text-texto-mutado leading-relaxed text-sm">
                         Parabéns, <strong className="text-texto font-bold">{nome}</strong>! Sua inscrição foi processada.
@@ -35,7 +35,7 @@ function Inscricao() {
                     <div className="mt-6 p-4 bg-fundo-principal rounded-xl border border-marca/10 text-left space-y-2">
                         <p className="text-xs text-texto-mutado"><span className="font-bold text-texto">Ingresso:</span> {ingresso}</p>
                         <p className="text-xs text-texto-mutado"><span className="font-bold text-texto">Quantidade:</span> {quantidade}x</p>
-                        <p className="text-sm font-bold text-marca border-t border-marca/5 pt-2">Total do Pedido: R\$ {valorTotal}</p>
+                        <p className="text-sm font-bold text-marca border-t border-marca/5 pt-2">Total do Pedido: R$ {valorTotal}</p>
                     </div>
                     <p className="text-xs text-texto-mutado/60 mt-6">Enviamos os vouchers para {email}</p>
                 </div>
@@ -56,6 +56,7 @@ function Inscricao() {
                         <input
                             type="text"
                             required
+                            autoComplete="name"
                             value={nome}
                             onChange={(e) => {
                                 setNome(e.target.value)
@@ -72,6 +73,7 @@ function Inscricao() {
                         <input
                             type="email"
                             required
+                            autoComplete="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full bg-fundo-principal border border-marca/20 rounded-xl px-4 py-3 text-texto focus:outline-none focus:border-marca text-sm"
@@ -109,7 +111,7 @@ function Inscricao() {
 
                     <div className="bg-fundo-principal/50 p-4 rounded-xl border border-marca/5 flex justify-between items-center text-sm">
                         <span className="text-texto-mutado">Valor estimado:</span>
-                        <strong className="text-base font-black text-marca">R\$ {valorTotal}</strong>
+                        <strong className="text-base font-black text-marca">R$ {valorTotal}</strong>
                     </div>
 
                     <button

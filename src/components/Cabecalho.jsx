@@ -12,6 +12,8 @@ function Cabecalho() {
 
         <button
           onClick={() => setMenuAberto(!menuAberto)}
+          aria-expanded={menuAberto}
+          aria-label={menuAberto ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
           className="md:hidden text-texto text-sm font-bold uppercase tracking-wider bg-marca/10 px-3 py-1.5 rounded-lg border border-marca/20 cursor-pointer"
         >
           {menuAberto ? 'Fechar ✕' : 'Menu ☰'}
@@ -21,6 +23,7 @@ function Cabecalho() {
           <a href="#sobre" className="hover:text-marca transition-colors text-sm font-medium">Sobre</a>
           <a href="#programacao" className="hover:text-marca transition-colors text-sm font-medium">Programação</a>
           <a href="#autores" className="hover:text-marca transition-colors text-sm font-medium">Mentores</a>
+          <a href="#perguntas-frequentes" className="hover:text-marca transition-colors text-sm font-medium">Dúvidas</a>
           <a href="#inscricao" className="hover:text-marca transition-colors text-sm font-medium">Inscrição</a>
         </nav>
       </div>
@@ -30,6 +33,7 @@ function Cabecalho() {
           <a href="#sobre" onClick={() => setMenuAberto(false)} className="hover:text-marca text-sm font-medium py-1">Sobre</a>
           <a href="#programacao" onClick={() => setMenuAberto(false)} className="hover:text-marca text-sm font-medium py-1">Programação</a>
           <a href="#autores" onClick={() => setMenuAberto(false)} className="hover:text-marca text-sm font-medium py-1">Mentores</a>
+          <a href="#perguntas-frequentes" onClick={() => setMenuAberto(false)} className="hover:text-marca text-sm font-medium py-1">Dúvidas</a>
           <a href="#inscricao" onClick={() => setMenuAberto(false)} className="hover:text-marca text-sm font-medium py-1">Inscrição</a>
         </nav>
       )}
